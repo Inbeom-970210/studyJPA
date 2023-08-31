@@ -1,6 +1,8 @@
 package jpabook.jpashop;
 
 import jakarta.persistence.*;
+import jpabook.jpashop.domain.Member;
+import jpabook.jpashop.domain.Order;
 
 public class JpaMain {
 
@@ -13,6 +15,9 @@ public class JpaMain {
         tx.begin();
 
         try {
+
+            Order order = em.find(Order.class, 1L);
+            Long memberId = order.getMemberId();
 
             tx.commit();
         } catch (Exception e) {
